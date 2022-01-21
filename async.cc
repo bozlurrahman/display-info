@@ -33,7 +33,7 @@ class PiWorker : public AsyncWorker {
   // here, so everything we need for input and output
   // should go on `this`.
   void Execute () {
-    estimate = Estimate(points);
+    estimate = enumerateDisplays(points);
   }
 
   // Executed when the async work is complete
@@ -55,7 +55,7 @@ class PiWorker : public AsyncWorker {
   double estimate;
 };
 
-// Asynchronous access to the `Estimate()` function
+// Asynchronous access to the `enumerateDisplays()` function
 NAN_METHOD(CalculateAsync) {
   int points = To<int>(info[0]).FromJust();
   Callback *callback = new Callback(To<Function>(info[1]).ToLocalChecked());

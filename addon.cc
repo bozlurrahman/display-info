@@ -18,7 +18,7 @@ using Nan::New;
 using Nan::Set;
 
 // Expose synchronous and asynchronous access to our
-// Estimate() function
+// enumerateDisplays() function
 NAN_MODULE_INIT(InitAll) {
   Set(target, New<String>("calculateSync").ToLocalChecked(),
     GetFunction(New<FunctionTemplate>(CalculateSync)).ToLocalChecked());
