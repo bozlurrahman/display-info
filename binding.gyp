@@ -6,7 +6,7 @@
         "addon.cc",
         # "pi_est.cc",
         "enumerate_displays.cc",
-        "sync.cc",
+        # "sync.cc",
         # "async.cc"
       ],
       "include_dirs": ["<!(node -e \"require('nan')\")"]

@@ -7,8 +7,7 @@
  ********************************************************************/
 
 #include <nan.h>
-#include "sync.h"   // NOLINT(build/include)
-// #include "async.h"  // NOLINT(build/include)
+#include "enumerate_displays.h"   // NOLINT(build/include)
 
 using v8::FunctionTemplate;
 using v8::Object;
@@ -20,8 +19,8 @@ using Nan::Set;
 // Expose synchronous and asynchronous access to our
 // enumerateDisplays() function
 NAN_MODULE_INIT(InitAll) {
-  Set(target, New<String>("calculateSync").ToLocalChecked(),
-    GetFunction(New<FunctionTemplate>(CalculateSync)).ToLocalChecked());
+  Set(target, New<String>("enumerateDisplays").ToLocalChecked(),
+    GetFunction(New<FunctionTemplate>(enumerateDisplays)).ToLocalChecked());
 
   // Set(target, New<String>("calculateAsync").ToLocalChecked(),
   //   GetFunction(New<FunctionTemplate>(CalculateAsync)).ToLocalChecked());

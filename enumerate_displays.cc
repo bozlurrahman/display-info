@@ -6,6 +6,8 @@
  * MIT License <https://github.com/nodejs/nan/blob/master/LICENSE.md>
  ********************************************************************/
 // #include <iostream>
+
+#include <nan.h>
 #include <cstdlib>
 #include "enumerate_displays.h" // NOLINT(build/include)
 #include <windows.h>
@@ -14,9 +16,13 @@
 
 // using std::endl;
 // using std::string;
-int enumerateDisplays(int points)
-{
-  int fResult;
-  fResult = GetSystemMetrics(SM_CMONITORS);
-  return fResult;
+
+// Simple synchronous access to the `enumerateDisplays()` function
+NAN_METHOD(enumerateDisplays) {
+  // expect a number as the first argument
+  int points = Nan::To<int>(info[0]).FromJust();
+ 
+  int fResult = GetSystemMetrics(SM_CMONITORS);
+
+  info.GetReturnValue().Set(fResult);
 }
