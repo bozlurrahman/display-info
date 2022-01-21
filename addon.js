@@ -48,5 +48,13 @@ function runAsync() {
   }
 }
 
-runSync();
-runAsync();
+// runSync();
+// runAsync();
+
+function run() {
+  // var result = addon.enumerateDisplays();
+  var result = addon.calculateSync(calculations);
+  console.log('result', result);
+}
+
+run();
