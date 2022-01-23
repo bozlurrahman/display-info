@@ -8,6 +8,7 @@
 
 #include <nan.h>
 #include "enumerate_displays.h"   // NOLINT(build/include)
+#include "sleep_displays.h"   // NOLINT(build/include)
 
 using v8::FunctionTemplate;
 using v8::Object;
@@ -22,8 +23,8 @@ NAN_MODULE_INIT(InitAll) {
   Set(target, New<String>("enumerateDisplays").ToLocalChecked(),
     GetFunction(New<FunctionTemplate>(enumerateDisplays)).ToLocalChecked());
 
-  // Set(target, New<String>("calculateAsync").ToLocalChecked(),
-  //   GetFunction(New<FunctionTemplate>(CalculateAsync)).ToLocalChecked());
+  Set(target, New<String>("sleepDisplays").ToLocalChecked(),
+    GetFunction(New<FunctionTemplate>(sleepDisplays)).ToLocalChecked());
 }
 
 NODE_MODULE(addon, InitAll)
