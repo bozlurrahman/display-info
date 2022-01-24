@@ -11,8 +11,17 @@ var calculations = process.argv[2] || 100000000;
 
 function run() {
   // var result = addon.enumerateDisplays();
-  var result = addon.enumerateDisplays(calculations);
-  console.log('result', result);
+  var NumberOfDisplay = addon.enumerateDisplays(calculations);
+  console.log('Number Of Display:', NumberOfDisplay);
+
+  // to check last last input time i have run the code after 5 sec toget result 5
+  // after running code please don't move mouse or press any key to get proper result.
+  setTimeout(() => {
+    var lastInputInfo = addon.lastInputInfo();
+    console.log('last Input Info:', lastInputInfo);
+    
+  }, 5000);
+  
 }
 
 run();

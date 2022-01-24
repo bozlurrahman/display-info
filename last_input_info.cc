@@ -9,20 +9,20 @@
 
 #include <nan.h>
 #include <cstdlib>
-#include "enumerate_displays.h" // NOLINT(build/include)
+#include "last_input_info.h" // NOLINT(build/include)
 #include <windows.h>
 #include <stdio.h>
 #pragma comment(lib, "user32.lib")
 
-// using std::endl;
-// using std::string;
+NAN_METHOD(lastInputInfo)
+{
+  LASTINPUTINFO li;
+  li.cbSize = sizeof(LASTINPUTINFO);
 
-// Simple synchronous access to the `enumerateDisplays()` function
-NAN_METHOD(enumerateDisplays) {
-  // expect a number as the first argument
-  int points = Nan::To<int>(info[0]).FromJust();
- 
-  // int fResult = GetSystemMetrics(SM_CMONITORS);
 
-  info.GetReturnValue().Set(true);
+  bool fResult = GetLastInputInfo(&li);
+
+  float resul = ceil((GetTickCount() - li.dwTime) / 1000);
+
+  info.GetReturnValue().Set(resul);
 }
