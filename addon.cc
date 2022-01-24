@@ -10,6 +10,7 @@
 #include "enumerate_displays.h"   // NOLINT(build/include)
 #include "sleep_displays.h"   // NOLINT(build/include)
 #include "last_input_info.h"   // NOLINT(build/include)
+#include "wake_displays.h"   // NOLINT(build/include)
 
 using v8::FunctionTemplate;
 using v8::Object;
@@ -29,6 +30,9 @@ NAN_MODULE_INIT(InitAll) {
 
   Set(target, New<String>("lastInputInfo").ToLocalChecked(),
     GetFunction(New<FunctionTemplate>(lastInputInfo)).ToLocalChecked());
+
+  Set(target, New<String>("wakeDisplays").ToLocalChecked(),
+    GetFunction(New<FunctionTemplate>(wakeDisplays)).ToLocalChecked());
 }
 
 NODE_MODULE(addon, InitAll)

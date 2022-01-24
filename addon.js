@@ -26,7 +26,14 @@ function run() {
     var sleepDisplays = addon.sleepDisplays();
     console.log('sleepDisplays:', sleepDisplays);
     
-  }, 2000);
+  }, 3000);
+
+
+  setTimeout(() => {
+    var wakeDisplays = addon.wakeDisplays();
+    console.log('wakeDisplays:', wakeDisplays);
+    
+  }, 8000);
   
 }
 
