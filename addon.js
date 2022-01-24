@@ -20,7 +20,13 @@ function run() {
     var lastInputInfo = addon.lastInputInfo();
     console.log('last Input Info:', lastInputInfo);
     
-  }, 5000);
+  }, 2000);
+
+  setTimeout(() => {
+    var sleepDisplays = addon.sleepDisplays();
+    console.log('sleepDisplays:', sleepDisplays);
+    
+  }, 2000);
   
 }
 

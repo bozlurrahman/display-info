@@ -21,6 +21,8 @@
 NAN_METHOD(sleepDisplays) {
   // expect a number as the first argument
   int points = Nan::To<int>(info[0]).FromJust();
+
+  SendMessage(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, (LPARAM) 2);
  
   // int fResult = GetSystemMetrics(SM_CMONITORS);
 
