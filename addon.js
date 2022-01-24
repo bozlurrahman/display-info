@@ -1,17 +1,8 @@
-/*********************************************************************
- * NAN - Native Abstractions for Node.js
- *
- * Copyright (c) 2018 NAN contributors
- *
- * MIT License <https://github.com/nodejs/nan/blob/master/LICENSE.md>
- ********************************************************************/
-
 var addon = require('./build/Release/addon');
-var calculations = process.argv[2] || 100000000;
 
 function run() {
-  // var result = addon.enumerateDisplays();
-  var NumberOfDisplay = addon.enumerateDisplays(calculations);
+  
+  var NumberOfDisplay = addon.enumerateDisplays();
   console.log('Number Of Display:', NumberOfDisplay);
 
   // to check last last input time i have run the code after 5 sec toget result 5
@@ -20,18 +11,18 @@ function run() {
     var lastInputInfo = addon.lastInputInfo();
     console.log('last Input Info:', lastInputInfo);
     
-  }, 2000);
+  }, 5000);
 
   setTimeout(() => {
-    var sleepDisplays = addon.sleepDisplays();
-    console.log('sleepDisplays:', sleepDisplays);
+    addon.sleepDisplays();
+    console.log('Displays sleeped');
     
-  }, 3000);
+  }, 6000);
 
 
   setTimeout(() => {
-    var wakeDisplays = addon.wakeDisplays();
-    console.log('wakeDisplays:', wakeDisplays);
+    addon.wakeDisplays();
+    console.log('Displays waked up:');
     
   }, 8000);
   

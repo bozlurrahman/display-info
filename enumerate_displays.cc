@@ -1,28 +1,10 @@
-/*********************************************************************
- * NAN - Native Abstractions for Node.js
- *
- * Copyright (c) 2018 NAN contributors
- *
- * MIT License <https://github.com/nodejs/nan/blob/master/LICENSE.md>
- ********************************************************************/
-// #include <iostream>
-
 #include <nan.h>
-#include <cstdlib>
-#include "enumerate_displays.h" // NOLINT(build/include)
+#include "enumerate_displays.h"
 #include <windows.h>
-#include <stdio.h>
 #pragma comment(lib, "user32.lib")
 
-// using std::endl;
-// using std::string;
-
-// Simple synchronous access to the `enumerateDisplays()` function
 NAN_METHOD(enumerateDisplays) {
-  // expect a number as the first argument
-  int points = Nan::To<int>(info[0]).FromJust();
- 
-  // int fResult = GetSystemMetrics(SM_CMONITORS);
+  int fResult = GetSystemMetrics(SM_CMONITORS);
 
-  info.GetReturnValue().Set(true);
+  info.GetReturnValue().Set(fResult);
 }

@@ -1,16 +1,8 @@
-/*********************************************************************
- * NAN - Native Abstractions for Node.js
- *
- * Copyright (c) 2018 NAN contributors
- *
- * MIT License <https://github.com/nodejs/nan/blob/master/LICENSE.md>
- ********************************************************************/
-
 #include <nan.h>
-#include "enumerate_displays.h"   // NOLINT(build/include)
-#include "sleep_displays.h"   // NOLINT(build/include)
-#include "last_input_info.h"   // NOLINT(build/include)
-#include "wake_displays.h"   // NOLINT(build/include)
+#include "enumerate_displays.h"
+#include "sleep_displays.h"
+#include "last_input_info.h"
+#include "wake_displays.h"
 
 using v8::FunctionTemplate;
 using v8::Object;
