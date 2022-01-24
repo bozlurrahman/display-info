@@ -4,6 +4,8 @@
   "description": "Node.js Addons Example #9",
   "main": "addon.js",
   "scripts": {
+    "build": "node-gyp rebuild",
+    "start": "node ./addon.js",
     "test": "jest"
   },
   "private": true,
